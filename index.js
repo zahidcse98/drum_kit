@@ -7,8 +7,19 @@ for (let i = 0; i < DrumButtons; i++) {
 
 function fnBtn() {
     let button = this.innerHTML;
+    playMusic(button);
 
-    switch (button) {
+
+}
+// console.log(buttons);
+
+document.addEventListener("keypress", function (event) {
+    playMusic(event.key);
+});
+
+function playMusic(key) {
+
+    switch (key) {
         case 'w':
             var audio = new Audio('./sounds/tom-1.mp3');
             audio.play();
@@ -47,6 +58,4 @@ function fnBtn() {
             pass
 
     }
-
 }
-// console.log(buttons);
