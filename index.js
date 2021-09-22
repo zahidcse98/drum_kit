@@ -8,6 +8,7 @@ for (let i = 0; i < DrumButtons; i++) {
 function fnBtn() {
     let button = this.innerHTML;
     playMusic(button);
+    btnAnimation(button);
 
 
 }
@@ -15,6 +16,7 @@ function fnBtn() {
 
 document.addEventListener("keypress", function (event) {
     playMusic(event.key);
+    btnAnimation(event.key);
 });
 
 function playMusic(key) {
@@ -58,4 +60,14 @@ function playMusic(key) {
             pass
 
     }
+}
+
+
+function btnAnimation(currentKey) {
+    var activeBtn = document.querySelector("." + currentKey);
+    activeBtn.classList.add("pressed");
+
+    setTimeout(function () {
+        activeBtn.classList.remove("pressed")
+    }, 100)
 }
